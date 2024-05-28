@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../fonts/font.css">
+    <title>Inicio</title>
+    <style>
+        body {
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #fff5e155;
+        }
+
+        body,
+        nav,
+        main,
+        footer,
+        header,
+        section {
+            box-sizing: border-box;
+            width: 100%;
+        }
+
+        main,
+        .carousel {
+            background-color: #fff5e1;
+        }
+
+        /*NAVBAR*/
+
+        header {
+            background-color: #f1daae;
+        }
+
+        nav {
+            box-sizing: border-box;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            padding: 10px;
+            justify-content: center;
+            background-color: #f1daae;
+        }
+
+        .nav__logo {
+            width: 130px;
+            padding: 0 2rem;
+            margin: 0;
+        }
+
+        .nav__list {
+            display: inline-flex;
+            justify-content: center;
+        }
+
+        .list {
+            display: flex;
+            list-style: none;
+            padding: 0;
+            gap: 4px;
+            margin: 4px;
+        }
+
+        .list__item {
+            margin: 1rem;
+            display: inline-flex;
+        }
+
+
+        .list__link {
+            color: #fff;
+            text-decoration: none;
+            height: 5rem;
+            text-align: center;
+            align-content: center;
+            width: 13rem;
+            border-radius: 5px;
+            font-size: 1.5rem;
+            background-color: #ba9165;
+            box-shadow: -5px -5px 0 #936835;
+            font-family: Elephnt;
+            transition: box-shadow .4s ease, transform 0.2s ease;
+        }
+
+        .list__link:hover {
+            box-shadow: 0 0 0 7px #936835;
+        }
+
+        .menu__img {
+            width: 70px;
+            background-color: chocolate;
+        }
+
+        .menu__img,
+        .navbar__input {
+            display: none;
+        }
+
+        /*MAIN*/
+
+        section,
+        main {
+            max-width: 1024px;
+        }
+
+        .titulo {
+            font-family: Elephnt;
+            padding: 3rem 1rem 1rem 1rem;
+        }
+
+        .titulo h2 {
+            text-align: center;
+            font-weight: normal;
+            font-size: 3rem;
+            margin: 0;
+            color: #9b3c28;
+            text-decoration: underline;
+            text-decoration-thickness: 1.5px;
+        }
+
+
+
+        .contenido {
+            font-family: Montserrat;
+            padding: 1rem 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 5rem;
+        }
+
+        .contenido__mapa {
+            font-size: 1.5rem;
+            text-align: center;
+            width: 50%;
+            padding: 1rem;
+        }
+
+        .contenido__mapa p {
+            text-align: left;
+            text-wrap: balance;
+            display: inline-block;
+            padding: 1rem 3rem;
+            font-weight: bold;
+        }
+
+        .contenido__mapa .mapa {
+            text-align: center;
+            height: 300px;
+            width: 80%;
+        }
+
+        .contenido__texto {
+            padding-top: 2.5rem;
+            width: 50%;
+            flex-grow: 1;
+            align-self: flex-start;
+        }
+
+        .contenido__texto p {
+            font-family: Montserrat;
+            color: #565656;
+            font-size: 1.3rem;
+            line-height: .5;
+            flex-grow: 1;
+        }
+
+        .contenido__texto .siguenos h3 {
+            font-size: 1.3rem;
+            text-align: left;
+        }
+
+        .contenido__texto .siguenos {
+            padding: 2rem;
+            width: 50%;
+        }
+
+
+
+        /* FOOTER */
+
+        footer {
+            margin-top: auto;
+            background-color: #50341f;
+            color: #fff;
+            padding: 2rem;
+            text-align: center;
+            flex-wrap: wrap;
+            display: flex;
+            align-items: start;
+            justify-content: space-evenly;
+            font-family: Montserrat;
+        }
+
+        footer .direccion {
+            text-align: left;
+        }
+
+
+        footer h3 {
+            font-size: 1.5rem;
+            margin: 0;
+        }
+
+        footer p {
+            font-size: 1.2rem;
+        }
+
+        .siguenos {
+            display: inline-flex;
+            justify-content: left;
+            flex-wrap: wrap;
+            width: 30%;
+        }
+
+        .siguenos h3 {
+            text-align: center;
+            width: 100%;
+        }
+
+        .siguenos .red {
+            flex-basis: calc(50% - 10px);
+            display: flex;
+            justify-content: left;
+            align-items: center;
+            text-align: left;
+            flex-grow: 1;
+        }
+
+        .siguenos .red p {
+            padding: 1px 5px;
+        }
+
+        .siguenos img {
+            background-color: #fff;
+            border-radius: 50px;
+            border: 1px solid white;
+            width: 40px;
+            height: 40px;
+            object-fit: contain;
+            transition: transform .3s ease, background-color .5s ease, border-color .5s ease, border-width .5s ease;
+            margin-right: 10px;
+        }
+
+        .siguenos a {
+            align-items: center;
+            justify-content: center;
+            display: inline-flex;
+            text-decoration: none;
+            color: #fff;
+        }
+
+        .siguenos a:hover img {
+            transform: scale(1.1);
+        }
+
+        .red__face:hover img {
+            background-color: #0764fe;
+            border-color: #0764fe;
+            border-width: 2px;
+        }
+
+        .red__tiktok:hover img {
+            background-color: #67c8cf;
+            border-color: #ed1d51;
+            border-width: 2px;
+        }
+
+        .red__whats:hover img {
+            background-color: #30ba43;
+            border-color: #30ba43;
+            border-width: 2px;
+        }
+
+        .red__insta:hover img {
+            background-color: #f40292;
+            border-color: #8902f9;
+            border-width: 2px;
+        }
+
+        @media screen and (max-width: 1000px) {
+
+            /* NAVBAR */
+
+            nav {
+                justify-content: space-around;
+            }
+
+            .nav__logo {
+                width: 130px;
+                padding: 0 0rem;
+            }
+
+            .nav__list {
+                width: 100%;
+                max-height: 0;
+                overflow: hidden;
+            }
+
+            .menu__img {
+                display: inline-flex;
+            }
+
+            #toggler:checked~.nav__list {
+                max-height: 100%;
+            }
+
+            .list {
+                flex-direction: column;
+                align-items: center;
+                padding: 20px;
+            }
+
+
+
+            .contenido {
+                flex-wrap: wrap;
+            }
+
+            .contenido__mapa {
+                width: 100%;
+            }
+
+            .contenido__texto {
+                display: flex;
+                flex-wrap: wrap;
+                text-align: center;
+                justify-content: center;
+                width: 100%;
+                align-self: center;
+            }
+
+            .contenido__texto p {
+                width: 70%;
+            }
+
+            .contenido__texto .siguenos {
+                width: 70%;
+            }
+
+
+            /* FOOTER */
+
+            footer .siguenos {
+                min-width: 200px;
+                padding: 2rem;
+            }
+
+            footer .siguenos .red {
+                justify-content: center;
+            }
+
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="nav__logo">
+                <a href="../index.html">
+                    <img src="../img/Logo.svg" alt="" class="logo">
+                </a>
+            </div>
+            <label for="toggler" class="navbar__label"><img src="../icon/menu.png" class="menu__img"></label>
+            <input type="checkbox" id="toggler" class="navbar__input">
+
+            <div class="nav__list">
+                <ul class="list">
+                    <li class="list__item"><a href="menu.html" class="list__link">Menu</a></li>
+                    <li class="list__item"><a href="sobre-nosotros.html" class="list__link">Sobre Nosotros</a></li>
+                    <li class="list__item"><a href="#" class="list__link">Contactanos</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+
+
+    <main>
+
+        <div class="titulo">
+            <h2>Contáctanos</h2>
+        </div>
+        <div class="contenido">
+            <div class="contenido__mapa">
+                <p>Atizapán de Zaragoza,
+                    Estado de México.</p>
+                <iframe class="mapa"
+                    src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d120266.52540228839!2d-99.2082074!3d19.6132309!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x61374e6024cbb6fb%3A0xccee7a7f5389903b!2sSart%20Gastronom%C3%ADa!5e0!3m2!1ses-419!2smx!4v1715153990509!5m2!1ses-419!2smx"
+                    width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+            <div class="contenido__texto">
+                <p>
+                    e-mail: robertol.ochoa@yahoo.com
+                </p>
+                <p>
+                    Teléfono: +52 55 6047 6315
+                </p>
+                <div class="siguenos">
+                    <h3>Redes Sociales</h3>
+
+                    <div class="red red__face">
+                        <a href="https://www.facebook.com/profile.php?id=100094674245730" target="_blank">
+                            <img src="../icon/facebook.png" alt="">
+                            <p>Sart Tartas</p>
+                        </a>
+                    </div>
+        
+                    <div class="red red__tiktok">
+                        <a href="https://www.tiktok.com/@sart.tartas" target="_blank">
+                            <img src="../icon/tiktok.png" alt="">
+                            <p>@sart_tartas</p>
+                        </a>
+                    </div>
+        
+                    <div class="red red__insta">
+                        <a href="https://www.instagram.com/sart.tartas/" target="_blank">
+                            <img src="../icon/instagram.png" alt="">
+                            <p>@sart_tartas</p>
+                        </a>
+                    </div>
+
+                    <div class="red red__whats">
+                        <a href="https://wa.me/525560476315?" target="_blank">
+                            <img src="../icon/whatsapp.png" alt="">
+                            <p>+52 55 6047 6315</p>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="direccion">
+            <h3>Dirección</h3>
+            <p>Atizapán de Zaragoza,
+                Edo Méx.</p>
+        </div>
+        <div class="siguenos">
+            <h3>Síguenos</h3>
+
+            <div class="red red__face">
+                <a href="https://www.facebook.com/profile.php?id=100094674245730" target="_blank">
+                    <img src="../icon/facebook.png" alt="">
+                    <p>Sart Tartas</p>
+                </a>
+            </div>
+
+            <div class="red red__tiktok">
+                <a href="https://www.tiktok.com/@sart.tartas" target="_blank">
+                    <img src="../icon/tiktok.png" alt="">
+                    <p>@sart_tartas</p>
+                </a>
+            </div>
+
+            <div class="red red__insta">
+                <a href="https://www.instagram.com/sart.tartas/" target="_blank">
+                    <img src="../icon/instagram.png" alt="">
+                    <p>@sart_tartas</p>
+                </a>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

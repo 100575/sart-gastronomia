@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="fonts/font.css">
+    <title>Inicio</title>
+    <style>
+        body {
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #fff5e155;
+        }
+
+        body,
+        nav,
+        main,
+        footer,
+        header,
+        section {
+            box-sizing: border-box;
+            width: 100%;
+        }
+
+        main,
+        .carousel {
+            background-color: #fff5e1;
+        }
+
+        /*NAVBAR*/
+
+        header {
+            background-color: #f1daae;
+        }
+
+        nav {
+            box-sizing: border-box;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            padding: 10px;
+            justify-content: center;
+            background-color: #f1daae;
+        }
+
+        .nav__logo {
+            width: 130px;
+            padding: 0 2rem;
+            margin: 0;
+        }
+
+        .nav__list {
+            display: inline-flex;
+            justify-content: center;
+        }
+
+        .list {
+            display: flex;
+            list-style: none;
+            padding: 0;
+            gap: 4px;
+            margin: 4px;
+        }
+
+        .list__item {
+            margin: 1rem;
+            display: inline-flex;
+        }
+
+
+        .list__link {
+            color: #fff;
+            text-decoration: none;
+            height: 5rem;
+            text-align: center;
+            align-content: center;
+            width: 13rem;
+            border-radius: 5px;
+            font-size: 1.5rem;
+            background-color: #ba9165;
+            box-shadow: -5px -5px 0 #936835;
+            font-family: Elephnt;
+            transition: box-shadow .4s ease, transform 0.2s ease;
+        }
+
+        .list__link:hover {
+            box-shadow: 0 0 0 7px #936835;
+        }
+
+        .menu__img {
+            width: 70px;
+            background-color: chocolate;
+        }
+
+        .menu__img,
+        .navbar__input {
+            display: none;
+        }
+
+
+
+
+        /* CAROUSEL */
+
+        .carousel {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow-x: hidden;
+        }
+
+        .input__radio {
+            display: none;
+        }
+
+        .container {
+            width: 100%;
+            height: 100%;
+            max-width: 600px;
+            max-width: 600px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transform-style: preserve-3d;
+            flex-direction: column;
+            margin-bottom: 100px;
+        }
+
+        .cards {
+            position: relative;
+            height: 180px;
+            width: 430px;
+            margin-bottom: 20px;
+            perspective: 1000px;
+            transform-style: preserve-3d;
+        }
+
+        .cards label {
+            position: absolute;
+            width: 430px;
+            left: 0;
+            right: 0;
+            margin: auto;
+            cursor: pointer;
+            transition: transform .5s ease;
+        }
+
+        .cards .card {
+            position: relative;
+            height: 100%;
+            padding: 10px 10px;
+        }
+
+        .cards .image {
+            display: flex;
+            justify-content: center;
+        }
+
+        .cards .image img {
+            border-radius: 5px;
+            box-shadow: 0 0 1px #0006;
+            margin-top: 23px;
+            width: 86%;
+            height: 220px;
+            object-fit: cover;
+            transition: transform .5s ease;
+        }
+
+        .cards .image img:hover {
+            transform: scale(1.05);
+        }
+
+        #img1:checked~.cards #slide4,
+        #img2:checked~.cards #slide5,
+        #img3:checked~.cards #slide1,
+        #img4:checked~.cards #slide2,
+        #img5:checked~.cards #slide3 {
+            transform: translate3d(-70%, 0, -220px);
+        }
+
+        #img1:checked~.cards #slide5,
+        #img2:checked~.cards #slide1,
+        #img3:checked~.cards #slide2,
+        #img4:checked~.cards #slide3,
+        #img5:checked~.cards #slide4 {
+            transform: translate3d(-35%, 0, -120px);
+        }
+
+        #img1:checked~.cards #slide1,
+        #img2:checked~.cards #slide2,
+        #img3:checked~.cards #slide3,
+        #img4:checked~.cards #slide4,
+        #img5:checked~.cards #slide5 {
+            transform: translate3d(0, 0, 0);
+        }
+
+        #img1:checked~.cards #slide2,
+        #img2:checked~.cards #slide3,
+        #img3:checked~.cards #slide4,
+        #img4:checked~.cards #slide5,
+        #img5:checked~.cards #slide1 {
+            transform: translate3d(35%, 0, -120px);
+        }
+
+        #img1:checked~.cards #slide3,
+        #img2:checked~.cards #slide4,
+        #img3:checked~.cards #slide5,
+        #img4:checked~.cards #slide1,
+        #img5:checked~.cards #slide2 {
+            transform: translate3d(70%, 0, -220px);
+        }
+
+        /*MAIN*/
+
+        section,
+        main {
+            max-width: 1024px;
+        }
+
+        .titulo {
+            font-family: Elephnt;
+            padding: 1rem;
+            background-color: #f1daae;
+        }
+
+        .titulo h2 {
+            text-align: center;
+            font-weight: normal;
+            font-size: 3rem;
+            margin: 0;
+            color: #9b3c28;
+        }
+
+        .contenido {
+            padding: 2rem 0rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-sizing: border-box;
+        }
+
+        .contenido__img {
+            padding: 3rem 4rem;
+            min-width: 300px;
+        }
+
+        .contenido__img img {
+            width: 100%;
+        }
+
+        .contenido__texto {
+            padding: 2rem;
+            width: 100%;
+            flex-grow: 1;
+        }
+
+        .contenido__texto p {
+            
+            margin: auto;
+            width: 90%;
+            font-family: Montserrat;
+            color: #565656;
+            font-size: 1.3rem;
+            flex-grow: 1;
+        }
+
+        p span {
+            color: #565656;
+            font-weight: bold;
+        }
+
+        /* FOOTER */
+        
+        footer {
+            margin-top: auto;
+            background-color: #50341f;
+            color: #fff;
+            padding: 2rem;
+            text-align: center;
+            flex-wrap: wrap;
+            display: flex;
+            align-items: start;
+            justify-content: space-evenly;
+            font-family: Montserrat;
+        }
+
+        footer .direccion {
+            text-align: left;
+        }
+
+
+        footer h3 {
+            font-size: 1.5rem;
+            margin: 0;
+        }
+
+        footer p {
+            font-size: 1.2rem;
+        }
+
+        footer .siguenos {
+            display: inline-flex;
+            justify-content: left;
+            flex-wrap: wrap;
+            width: 30%;
+        }
+
+        footer .siguenos h3 {
+            text-align: center;
+            width: 100%;
+        }
+
+        footer .siguenos .red {
+            flex-basis: calc(50% - 10px);
+            display: flex;
+            justify-content: left;
+            align-items: center;
+            text-align: left;
+            flex-grow: 1;
+        }
+
+        footer .siguenos .red p {
+            padding: 1px 5px;
+        }
+
+        footer img {
+            background-color: #fff;
+            border-radius: 50px;
+            border: 1px solid white;
+            width: 40px;
+            height: 40px;
+            object-fit: contain;
+            transition: transform .3s ease;
+        }
+
+        footer a {
+            align-items: center;
+            justify-content: center;
+            display: inline-flex;
+            text-decoration: none;
+            color: #fff;
+        }
+
+        .red__face:hover img {
+            background-color: #0764fe;
+            border-color: #0764fe;
+            border-width: 2px;
+        }
+
+        .red__tiktok:hover img {
+            background-color: #67c8cf;
+            border-color: #ed1d51;
+            border-width: 2px;
+        }
+
+        .red__insta:hover img {
+            background-color: #f40292;
+            border-color: #8902f9;
+            border-width: 2px;
+        }
+
+        footer a:hover img {
+            transform: scale(1.1);
+        }
+
+
+        @media screen and (max-width: 1000px) {
+
+            /* NAVBAR */
+
+            nav {
+                justify-content: space-around;
+            }
+
+            .nav__logo {
+                width: 130px;
+                padding: 0 0rem;
+            }
+
+            .nav__list {
+                width: 100%;
+                max-height: 0;
+                overflow: hidden;
+            }
+
+            .menu__img {
+                display: inline-flex;
+            }
+
+            #toggler:checked~.nav__list {
+                max-height: 100%;
+            }
+
+            .list {
+                flex-direction: column;
+                align-items: center;
+                padding: 20px;
+            }
+
+
+
+            .contenido {
+                flex-wrap: wrap;
+            }
+
+            /* FOOTER */
+
+            footer .siguenos {
+                min-width: 200px;
+                padding: 2rem;
+            }
+
+            footer .siguenos .red {
+                justify-content: center;
+            }
+
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="nav__logo">
+                <a href="#">
+                    <img src="img/Logo.svg" alt="" class="logo">
+                </a>
+            </div>
+            <label for="toggler" class="navbar__label"><img src="icon/menu.png" class="menu__img"></label>
+            <input type="checkbox" id="toggler" class="navbar__input">
+
+            <div class="nav__list">
+                <ul class="list">
+                    <li class="list__item"><a href="html/menu.html" class="list__link">Menu</a></li>
+                    <li class="list__item"><a href="html/sobre-nosotros.html" class="list__link">Sobre Nosotros</a></li>
+                    <li class="list__item"><a href="html/contactanos.html" class="list__link">Contactanos</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+
+    <section class="carousel">
+        <div class="container">
+            <input type="radio" name="slider" class="input__radio" id="img1" checked>
+            <input type="radio" name="slider" class="input__radio" id="img2">
+            <input type="radio" name="slider" class="input__radio" id="img3">
+            <input type="radio" name="slider" class="input__radio" id="img4">
+            <input type="radio" name="slider" class="input__radio" id="img5">
+
+            <div class="cards">
+                <label for="img1" id="slide1">
+                    <div class="card">
+                        <div class="image">
+                            <img src="img/imagen1.png" alt="">
+                        </div>
+                    </div>
+                </label>
+                <label for="img2" id="slide2">
+                    <div class="card">
+                        <div class="image">
+                            <img src="img/imagen2.png" alt="">
+                        </div>
+                    </div>
+                </label>
+                <label for="img3" id="slide3">
+                    <div class="card">
+                        <div class="image">
+                            <img src="img/imagen3.png" alt="">
+                        </div>
+                    </div>
+                </label>
+                <label for="img4" id="slide4">
+                    <div class="card">
+                        <div class="image">
+                            <img src="img/imagen4.png" alt="">
+                        </div>
+                    </div>
+                </label>
+                <label for="img5" id="slide5">
+                    <div class="card">
+                        <div class="image">
+                            <img src="img/imagen5.png" alt="">
+                        </div>
+                    </div>
+                </label>
+            </div>
+        </div>
+    </section>
+    <main>
+
+        <div class="titulo">
+            <h2>Aroma, Sabor y Tú</h2>
+        </div>
+        <div class="contenido">
+            <div class="contenido__img">
+                <img src="img/imagen29.png" alt="">
+            </div>
+            <div class="contenido__texto">
+                <p>
+                    <span>“Aroma, sabor y tú”</span> es el lema de Sart, el cual
+                    destaca los tres aspectos más importantes para
+                    nosotros.
+                </p>
+                <p>
+                    A todos nos encanta el <span>aroma</span> al pan recién
+                    horneado, o el de una taza de café por la
+                    mañana, por lo que esto es importante para
+                    despertar nuestro apetito; el <span>sabor</span>, por otro lado,
+                    es fundamental, pues de nada sirve que el postre
+                    se vea bonito cuando no sabe bien, por lo que
+                    siempre buscamos ese balance entre ambos; y por
+                    último, <span>tú</span> , nuestro querido cliente, a quien siempre
+                    tomamos en cuenta y quien más nos inspira en
+                    este camino
+                </p>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="direccion">
+            <h3>Dirección</h3>
+            <p>Atizapán de Zaragoza,
+                Edo Méx.</p>
+        </div>
+        <div class="siguenos">
+            <h3>Síguenos</h3>
+
+            <div class="red red__face">
+                <a href="https://www.facebook.com/profile.php?id=100094674245730" target="_blank">
+                    <img src="icon/facebook.png" alt="">
+                    <p>Sart Tartas</p>
+                </a>
+            </div>
+
+            <div class="red red__tiktok">
+                <a href="https://www.tiktok.com/@sart.tartas" target="_blank">
+                    <img src="icon/tiktok.png" alt="">
+                    <p>@sart_tartas</p>
+                </a>
+            </div>
+
+            <div class="red red__insta">
+                <a href="https://www.instagram.com/sart.tartas/" target="_blank">
+                    <img src="icon/instagram.png" alt="">
+                    <p>@sart_tartas</p>
+                </a>
+            </div>
+            
+        </div>
+    </footer>
+</body>
+
+</html>

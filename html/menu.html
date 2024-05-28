@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../fonts/font.css">
+    <title>Menu</title>
+    <style>
+        body {
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #fff5e155;
+        }
+
+        body,
+        nav,
+        main,
+        footer,
+        header,
+        section {
+            box-sizing: border-box;
+            width: 100%;
+        }
+
+        main {
+            background-color: #fff5e1;
+        }
+
+        /*NAVBAR*/
+
+        header {
+            background-color: #f1daae;
+        }
+
+        nav {
+            box-sizing: border-box;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            padding: 10px;
+            justify-content: center;
+            background-color: #f1daae;
+        }
+
+        .nav__logo {
+            width: 130px;
+            padding: 0 2rem;
+            margin: 0;
+        }
+
+        .nav__list {
+            display: inline-flex;
+            justify-content: center;
+        }
+
+        .list {
+            display: flex;
+            list-style: none;
+            padding: 0;
+            gap: 4px;
+            margin: 4px;
+        }
+
+        .list__item {
+            margin: 1rem;
+            display: inline-flex;
+        }
+
+
+        .list__link {
+            color: #fff;
+            text-decoration: none;
+            height: 5rem;
+            text-align: center;
+            align-content: center;
+            width: 13rem;
+            border-radius: 5px;
+            font-size: 1.5rem;
+            background-color: #ba9165;
+            box-shadow: -5px -5px 0 #936835;
+            font-family: Elephnt;
+            transition: box-shadow .4s ease, transform 0.2s ease;
+        }
+
+        .list__link:hover {
+            box-shadow: 0 0 0 7px #936835;
+        }
+
+        .menu__img {
+            width: 70px;
+            background-color: chocolate;
+        }
+
+        .menu__img,
+        .navbar__input {
+            display: none;
+        }
+
+
+
+
+        /*MAIN*/
+
+        section,
+        main {
+            max-width: 1024px;
+        }
+
+        .titulo {
+            font-family: Elephnt;
+            padding: 3rem 1rem 1rem 1rem;
+        }
+
+        .titulo h2 {
+            text-align: center;
+            font-weight: normal;
+            font-size: 3rem;
+            margin: 0;
+            color: #9b3c28;
+            text-decoration: underline;
+            text-decoration-thickness: 1.5px;
+        }
+
+        .contenido {
+            padding: 1rem 5rem;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 5rem;
+        }
+
+        .card {
+            margin: 1rem 0rem;
+            text-align: center;
+            box-sizing: border-box;
+            padding: 1rem 1rem;
+            width: 270px;
+            height: 300px;
+        }
+
+        .card .imagen {
+            margin: auto;
+            width: 220px;
+            height: 140px;
+            overflow: hidden;
+            box-shadow: 10px 10px 0 #70685f;
+            transition: box-shadow .5s ease;
+        }
+
+        .card .imagen:hover {
+            box-shadow: 0px 0px 0px 10px #70685f;
+        }
+
+        .imagen img {
+            object-fit: cover;
+            object-position: center;
+            width: 100%;
+        }
+
+        .card .info {
+            margin-top: 1rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-evenly;
+            font-family: ChapmanTest;
+            font-weight: normal;
+        }
+
+        .card .info .name {
+            color: #936835;
+        }
+
+        .card .info .precio {
+            color: #9b3c28;
+            font-size: .8rem;
+        }
+
+        .card img {
+            transition: transform .3s ease;
+        }
+
+        .card img:hover {
+            transform: scale(1.2);
+        }
+
+
+
+        footer {
+            margin-top: auto;
+            background-color: #50341f;
+            color: #fff;
+            padding: 2rem;
+            text-align: center;
+            flex-wrap: wrap;
+            display: flex;
+            align-items: start;
+            justify-content: space-evenly;
+            font-family: Montserrat;
+        }
+
+        footer .direccion {
+            text-align: left;
+            
+            background-color: #50341f;
+        }
+
+
+        footer h3 {
+            font-size: 1.5rem;
+            margin: 0;
+        }
+
+        footer p {
+            font-size: 1.2rem;
+        }
+
+        footer .siguenos {
+            
+            background-color: #50341f;
+            display: inline-flex;
+            justify-content: left;
+            flex-wrap: wrap;
+            width: 30%;
+        }
+
+        footer .siguenos h3 {
+            text-align: center;
+            width: 100%;
+        }
+
+        footer .siguenos .red {
+            flex-basis: calc(50% - 10px);
+            display: flex;
+            justify-content: left;
+            align-items: center;
+            text-align: left;
+            flex-grow: 1;
+        }
+
+        footer .siguenos .red p {
+            padding: 1px 5px;
+        }
+
+        footer img {
+            background-color: #fff;
+            border-radius: 50px;
+            border: 1px solid white;
+            width: 40px;
+            height: 40px;
+            object-fit: contain;
+            transition: transform .3s ease;
+        }
+
+        footer a {
+            align-items: center;
+            justify-content: center;
+            display: inline-flex;
+            text-decoration: none;
+            color: #fff;
+        }
+
+        .red__face:hover img {
+            background-color: #0764fe;
+            border-color: #0764fe;
+            border-width: 2px;
+        }
+
+        .red__tiktok:hover img {
+            background-color: #67c8cf;
+            border-color: #ed1d51;
+            border-width: 2px;
+        }
+
+        .red__insta:hover img {
+            background-color: #f40292;
+            border-color: #8902f9;
+            border-width: 2px;
+        }
+
+        footer a:hover img {
+            transform: scale(1.1);
+        }
+
+        @media screen and (max-width: 1000px) {
+
+            /* NAVBAR */
+
+            nav {
+                justify-content: space-around;
+            }
+
+            .nav__logo {
+                width: 130px;
+                padding: 0 0rem;
+            }
+
+            .nav__list {
+                width: 100%;
+                max-height: 0;
+                overflow: hidden;
+            }
+
+            .menu__img {
+                display: inline-flex;
+            }
+
+            #toggler:checked~.nav__list {
+                max-height: 100%;
+            }
+
+            .list {
+                flex-direction: column;
+                align-items: center;
+                padding: 20px;
+            }
+
+
+
+            .contenido {
+                flex-wrap: wrap;
+            }
+
+            /* FOOTER */
+
+            footer .siguenos {
+                min-width: 200px;
+                padding: 2rem;
+            }
+
+            footer .siguenos .red {
+                justify-content: center;
+            }
+
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="nav__logo">
+                <a href="../index.html">
+                    <img src="../img/Logo.svg" alt="" class="logo">
+                </a>
+            </div>
+            <label for="toggler" class="navbar__label"><img src="../icon/menu.png" class="menu__img"></label>
+            <input type="checkbox" id="toggler" class="navbar__input">
+
+            <div class="nav__list">
+                <ul class="list">
+                    <li class="list__item"><a href="#" class="list__link">Menu</a></li>
+                    <li class="list__item"><a href="sobre-nosotros.html" class="list__link">Sobre Nosotros</a></li>
+                    <li class="list__item"><a href="contactanos.html" class="list__link">Contactanos</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+
+
+    <main>
+
+        <div class="titulo">
+            <h2>Menu</h2>
+        </div>
+        <div class="contenido">
+
+            <div class="card">
+                <div class="imagen">
+                    <img src="../img/imagen4.png" alt="">
+                </div>
+                <div class="info">
+                    <p class="name">Eclairs con un relleno
+                        de crema diplomática y fresas</p>
+                    <p class="precio">$12 la pieza
+                        <br>
+                        $250 la charola con 20 piezas
+                    </p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="imagen">
+                    <img src="../img/imagen31.png" alt="">
+                </div>
+                <div class="info">
+                    <p class="name">Brownies de temporada</p>
+                    <p class="precio">$200 por 8 piezas</p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="imagen">
+                    <img src="../img/imagen8.png" alt="">
+                </div>
+                <div class="info">
+                    <p class="name">Empanadas con sellos de
+                        chocolate: Harry Potter.</p>
+                    <p class="precio">Paquete en $180
+                    </p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="imagen">
+                    <img src="../img/imagen1.png" alt="">
+                </div>
+                <div class="info">
+                    <p class="name">Galletas decoradas</p>
+                    <p class="precio">$21 c/u
+                    </p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="imagen">
+                    <img src="../img/imagen6.png" alt="">
+                </div>
+                <div class="info">
+                    <p class="name">Bollos de ositos de “Valiente”
+                        (Pixar): Receta original
+                        de Disney</p>
+                    <p class="precio">$30 c/u
+                    </p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="imagen">
+                    <img src="../img/imagen24.png" alt="">
+                </div>
+                <div class="info">
+                    <p class="name">Bollos con orégano
+                        y ajonjolí</p>
+                    <p class="precio">$50 c/u
+                    </p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="imagen">
+                    <img src="../img/imagen14.png" alt="">
+                </div>
+                <div class="info">
+                    <p class="name">Pie de banana con
+                        almendras</p>
+                    <p class="precio">$45 c/u
+                    </p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="imagen">
+                    <img src="../img/imagen11.png" alt="">
+                </div>
+                <div class="info">
+                    <p class="name">Tarta de guayaba
+                        estilo Sinaloa</p>
+                    <p class="precio">$350
+                    </p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="imagen">
+                    <img src="../img/imagen15.png" alt="">
+                </div>
+                <div class="info">
+                    <p class="name">Cuernitos de pasta hojaldre
+                        con jamón, queso philadelphia
+                        y rajas</p>
+                    <p class="precio">$15 c/u
+                </div>
+            </div>
+            <div class="card">
+                <div class="imagen">
+                    <img src="../img/imagen7.png" alt="">
+                </div>
+                <div class="info">
+                    <p class="name">Tarta de frutos “Sart”</p>
+                    <p class="precio">$350
+                    </p>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="imagen">
+                    <img src="../img/imagen18.png" alt="">
+                </div>
+                <div class="info">
+                    <p class="name">Profiteroles de jamón
+                        serrano, preparado con
+                        queso, frutos secos
+                        y arándanos</p>
+                    <p class="precio">$20 c/u
+                    </p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="imagen">
+                    <img src="../img/imagen19.png" alt="">
+                </div>
+                <div class="info">
+                    <p class="name">Empanadas de hojaldre
+                    </p>
+                    <p class="precio">$23 c/u
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <footer>
+        <div class="direccion">
+            <h3>Dirección</h3>
+            <p>Atizapán de Zaragoza,
+                Edo Méx.</p>
+        </div>
+        <div class="siguenos">
+            <h3>Síguenos</h3>
+
+            <div class="red red__face">
+                <a href="https://www.facebook.com/profile.php?id=100094674245730" target="_blank">
+                    <img src="../icon/facebook.png" alt="">
+                    <p>Sart Tartas</p>
+                </a>
+            </div>
+
+            <div class="red red__tiktok">
+                <a href="https://www.tiktok.com/@sart.tartas" target="_blank">
+                    <img src="../icon/tiktok.png" alt="">
+                    <p>@sart_tartas</p>
+                </a>
+            </div>
+
+            <div class="red red__insta">
+                <a href="https://www.instagram.com/sart.tartas/" target="_blank">
+                    <img src="../icon/instagram.png" alt="">
+                    <p>@sart_tartas</p>
+                </a>
+            </div>
+            
+        </div>
+    </footer>
+</body>
+
+</html>
